@@ -1,5 +1,10 @@
 # todo-task
 
+Soution: 
+Solution are provided the solution which i founed i taken help from online for solving some errors. 
+
+
+
 📋 OBJECTIVE
 Build a simple Todo List application using HTML, CSS(Framework: Bootstrap), JS (ES6),  API Integrations that interacts with a Dummy API for fetching and adding tasks. The application should support:
 1) Viewing todos (paginated)
@@ -28,6 +33,3 @@ Build a simple Todo List application using HTML, CSS(Framework: Bootstrap), JS (
 ✅ Error handling for API fetch and post
 
 ✅ Loading state
-
-Soution: 
-Solution are provided the solution which i founed i taken help from online for solving some errors. 
