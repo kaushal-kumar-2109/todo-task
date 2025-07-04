@@ -1,0 +1,22 @@
+.taskcontainer{
+    width: 100%;
+    background: rgb(223, 222, 222);
+    padding: 3rem 3rem;
+    border-radius: 10px;
+}
+
+.list-group li{
+    margin: 0.5rem 0rem;
+    border-radius: 20px;
+}
+
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+
+.navlink{
+    cursor: pointer;
+}

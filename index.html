@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Todo-List</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item navlink ">
+                <a class="nav-link active" aria-current="page" id="alltask">All_Task</a>
+              </li>
+              <li class="nav-item navlink ">
+                <a class="nav-link" id="addtask">Add_Task</a>
+              </li>
+              <li class="nav-item navlink ">
+                <a class="nav-link" id="searchtask">Search_Task</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+  <div class="container my-4">
+    
+    <h1 class="text-center">Todo List</h1>
+
+    <!-- Add Todo Form -->
+    <form id="addTodoForm" class="row g-3 mb-3 mt-3 hide">
+      <div class="col-md-6">
+        <input type="text" class="form-control" id="newTodo" placeholder="Enter new todo" required />
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100 ">Add Task</button>
+      </div>
+    </form>
+
+    <!-- Filters -->
+    <div class="row mb-3 mt-3 hide" id="filter">
+      <div class="col-md-4">
+        <input type="text" id="search" class="form-control" placeholder="Search by task name" />
+      </div>
+      <div class="col-md-3">
+        <input type="date" id="fromDate" class="form-control" />
+      </div>
+      <div class="col-md-3">
+        <input type="date" id="toDate" class="form-control" />
+      </div>
+    </div>
+
+    <div class="mt-3 taskcontainer ">
+
+        <!-- Loading and Error -->
+        <div id="loading" class="text-center my-3">Loading...</div>
+        <div id="error" class="alert alert-danger d-none"></div>
+
+        <!-- Todo List -->
+        <ul class="list-group" id="todoList"></ul>
+
+    </div>
+
+    <!-- Pagination -->
+    <nav class="mt-4">
+      <ul class="pagination justify-content-center" id="pagination">
+      </ul>
+    </nav>
+
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        
+        
+        alltask.addEventListener("click",()=>{
+            removeFromAll('active',addtask,searchtask);
+            addToAll("hide",addTodoForm,filter);
+            addToAll('active',alltask);
+        });
+
+        addtask.addEventListener('click',()=>{
+            removeFromAll('active',alltask,searchtask);
+            removeFromAll('hide',addTodoForm);
+            addToAll("active",addtask);
+            addToAll("hide",filter);
+        });
+
+        searchtask.addEventListener("click",()=>{
+            removeFromAll('active',addtask,alltask);
+            removeFromAll('hide',filter);
+            addToAll("hide",addTodoForm);
+            addToAll('active',searchtask);
+        });
+        
+    </script>
+
+</body>
+</html>
